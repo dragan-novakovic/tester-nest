@@ -1,0 +1,45 @@
+type Query {
+    listings: [Listing]
+    listing(id: ID!): Listing
+    searchListings(input: SearchListingsInput): [Listing]
+}
+
+type Mutation {
+    createListing(input: CreateListingInput!): Listing
+}
+
+type Listing {
+    id: Int!
+    name: String!
+    category: String!
+    description: String!
+    price: Int!
+    beds: Int!
+    guests: Int!
+    lat: Float
+    lng: Float
+    amenities: [String!]
+    address: String!
+    addressTags: [String!]
+}
+
+input SearchListingsInput {
+    address: [String]
+    guests: Int
+    priceMin: Int
+    priceMax: Int
+}
+
+input CreateListingInput {
+    name: String!
+    category: String!
+    description: String!
+    price: Int!
+    beds: Int!
+    guests: Int!
+    lat: Float
+    lng: Float
+    amenities: [String!]
+    address: String!
+    addressTags: [String!]
+}
